@@ -1,13 +1,11 @@
 package me.jakejmattson.bot.commands
 
 import com.gitlab.kordlib.kordx.emoji.Emojis
-import me.jakejmattson.discordkt.api.annotations.Register
 import me.jakejmattson.discordkt.api.dsl.commands
 import java.awt.Color
 
-//To register commands, use the 'Register' annotation along with the 'commands' builder function.
+//To register commands, use the 'commands' builder function.
 //This create some new commands in a category called 'Basic'.
-@Register
 fun basics() = commands("Basics") {
     //The block creates a new command called 'Hello'.
     command("Hello") {

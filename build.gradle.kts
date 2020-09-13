@@ -4,21 +4,18 @@ group = "me.jakejmattson"
 version = "0.20.0"
 
 plugins {
-    kotlin("jvm") version "1.4.0"
+    kotlin("jvm") version "1.4.10"
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
     jcenter()
 }
 
 dependencies {
-    implementation("me.jakejmattson:DiscordKt:0.20.0-SNAPSHOT")
+    implementation("me.jakejmattson:DiscordKt:0.20.0")
 }
 
-tasks {
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
-    }
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "1.8"
 }

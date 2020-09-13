@@ -2,8 +2,7 @@ package me.jakejmattson.bot
 
 import com.gitlab.kordlib.kordx.emoji.Emojis
 import me.jakejmattson.discordkt.api.dsl.bot
-import me.jakejmattson.discordkt.api.extensions.addField
-import me.jakejmattson.discordkt.api.extensions.profileLink
+import me.jakejmattson.discordkt.api.extensions.*
 import java.awt.Color
 
 suspend fun main(args: Array<String>) {
@@ -13,7 +12,6 @@ suspend fun main(args: Array<String>) {
 
     //Start the bot and set configuration options.
     bot(token) {
-
         //Dynamically determine the prefix used for commands.
         prefix {
             "+"
