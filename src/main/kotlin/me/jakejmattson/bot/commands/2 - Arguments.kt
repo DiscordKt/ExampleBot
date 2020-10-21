@@ -18,7 +18,7 @@ fun arguments() = commands("Arguments") {
 
     command("Junk") {
         description = "Accept a bunch of arguments."
-        //You can accept as many arguments as you want
+        //You can accept as many arguments as you want.
         execute(IntegerArg, AnyArg, UserArg, ChannelArg, DoubleArg) {
             val (int, word, user, channel, double) = args
             respond("""
@@ -35,7 +35,7 @@ fun arguments() = commands("Arguments") {
 
     command("Sum") {
         description = "Sum a list of integers."
-        //Accepts any number of integers.
+        //You can also accept multiple of any type.
         execute(MultipleArg(IntegerArg)) {
             val numbers = args.first
             respond(numbers.sum())

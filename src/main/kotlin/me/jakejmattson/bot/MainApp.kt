@@ -1,6 +1,7 @@
 package me.jakejmattson.bot
 
 import com.gitlab.kordlib.kordx.emoji.Emojis
+import kotlinx.coroutines.flow.toList
 import me.jakejmattson.discordkt.api.dsl.bot
 import me.jakejmattson.discordkt.api.extensions.*
 import java.awt.Color
@@ -28,10 +29,10 @@ suspend fun main(args: Array<String>) {
             //Whether or not to show registered entity information on startup.
             showStartupLog = true
 
-            //If this is true, commands cannot be invoked in a private message.
-            requiresGuild = true
+            //Whether or not to recommend commands when an invalid one is invoked.
+            recommendCommands = true
 
-            //An emoji added when a command is received ('null' to disable).
+            //An emoji added when a command is invoked (use 'null' to disable this).
             commandReaction = Emojis.eyes
 
             //A color constant for your bot - typically used in embeds.
@@ -71,6 +72,12 @@ suspend fun main(args: Array<String>) {
         //The Discord presence shown on your bot.
         presence {
             playing("DiscordKt Example")
+        }
+
+        //This is run once the bot has finished setup and logged in.
+        onStart {
+            val guilds = api.guilds.toList().joinToString { it.name }
+            println("Bot online in these guilds: $guilds")
         }
     }
 }

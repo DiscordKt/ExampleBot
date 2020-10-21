@@ -5,12 +5,12 @@ import me.jakejmattson.discordkt.api.dsl.commands
 import java.awt.Color
 
 //To register commands, use the 'commands' builder function.
-//This create some new commands in a category called 'Basic'.
+//This creates some new commands in a category called 'Basic'.
 fun basics() = commands("Basics") {
-    //The block creates a new command called 'Hello'.
+    //This block creates a new command called 'Hello'.
     command("Hello") {
         description = "A 'Hello World' command." //Descriptions are used for docs and help menus.
-        execute { //The 'execute' block is where all the command logic
+        execute { //The 'execute' block is what code will be run when your command is invoked.
             //The respond command can be used to send a message back to the user who ran the command.
             respond("Hello World!")
         }

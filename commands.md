@@ -7,11 +7,11 @@
 | Argument... | Accepts many of this argument. |
 
 ## Arguments
-| Commands | Arguments                                | Description                  |
-| -------- | ---------------------------------------- | ---------------------------- |
-| Echo     | Text                                     | Echo the input back.         |
-| Junk     | Integer, Any, User, Text Channel, Double | Accept a bunch of arguments. |
-| Sum      | Integer...                               | Sum a list of integers.      |
+| Commands | Arguments                           | Description                  |
+| -------- | ----------------------------------- | ---------------------------- |
+| Echo     | Text                                | Echo the input back.         |
+| Junk     | Integer, Any, User, Channel, Double | Accept a bunch of arguments. |
+| Sum      | Integer...                          | Sum a list of integers.      |
 
 ## Basics
 | Commands | Arguments | Description              |
@@ -19,6 +19,13 @@
 | Embed    |           | Create an embed message. |
 | Hello    |           | A 'Hello World' command. |
 | Menu     |           | Create a menu message.   |
+
+## Context
+| Commands | Arguments | Description                                |
+| -------- | --------- | ------------------------------------------ |
+| Dm       |           | This command can only be used in a DM.     |
+| Global   |           | This command can be used in a guild or DM. |
+| Guild    |           | This command can only be used in a guild.  |
 
 ## Conversation
 | Commands | Arguments | Description                                 |

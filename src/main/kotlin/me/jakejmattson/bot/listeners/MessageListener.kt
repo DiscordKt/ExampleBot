@@ -5,8 +5,8 @@ import me.jakejmattson.discordkt.api.dsl.listeners
 
 //Create a block of listeners.
 fun testListeners() = listeners {
-    //You can use `on<Event>` to listen for a Discord event.
 
+    //You can use `on<Event>` to listen for a Discord event.
     on<MessageCreateEvent> {
         //Ignore the message if it was sent by a bot.
         if (message.author?.isBot == true)

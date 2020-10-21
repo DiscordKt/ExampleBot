@@ -1,7 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 group = "me.jakejmattson"
-version = "0.20.0"
+version = "0.21.0"
 
 plugins {
     kotlin("jvm") version "1.4.10"
@@ -13,9 +11,9 @@ repositories {
 }
 
 dependencies {
-    implementation("me.jakejmattson:DiscordKt:0.20.0")
+    implementation("me.jakejmattson:DiscordKt:0.21.0")
 }
 
-tasks.withType<KotlinCompile> {
+tasks.compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }

@@ -23,7 +23,7 @@ fun optionals() = commands("Optional") {
 
     command("OptionalAdd") {
         description = "Add one or two numbers together."
-        //Optional and non-optional arguments can also be mixed.
+        //Optional and non-optional arguments can be mixed any way you like.
         execute(IntegerArg, IntegerArg.makeOptional(0)) {
             val (first, second) = args
             respond("$first + $second = ${first + second}")
