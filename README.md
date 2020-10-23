@@ -10,3 +10,5 @@
       <img src="https://img.shields.io/badge/Personal-JakeyWakey%231569-%2300BFFF.svg?logo=discord" alt="Discord JakeyWakey#1569">
   </a>
 </p>
+
+This is an example bot project for the DiscordKt library, showing all the core features and syntax.
