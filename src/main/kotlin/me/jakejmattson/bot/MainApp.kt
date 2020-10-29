@@ -1,5 +1,6 @@
 package me.jakejmattson.bot
 
+import com.gitlab.kordlib.gateway.Intent
 import com.gitlab.kordlib.kordx.emoji.Emojis
 import kotlinx.coroutines.flow.toList
 import me.jakejmattson.discordkt.api.dsl.bot
@@ -53,7 +54,7 @@ suspend fun main(args: Array<String>) {
             }
 
             thumbnail {
-                url = api.getSelf().avatar.url
+                url = it.discord.api.getSelf().avatar.url
             }
 
             footer {
@@ -74,10 +75,15 @@ suspend fun main(args: Array<String>) {
             playing("DiscordKt Example")
         }
 
+        //Configure the Discord Gateway intents for your bot.
+        intents {
+            +Intent.GuildMessages
+        }
+
         //This is run once the bot has finished setup and logged in.
         onStart {
             val guilds = api.guilds.toList().joinToString { it.name }
-            println("Bot online in these guilds: $guilds")
+            println("Guilds: $guilds")
         }
     }
 }
