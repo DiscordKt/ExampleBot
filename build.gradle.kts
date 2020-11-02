@@ -1,5 +1,5 @@
 group = "me.jakejmattson"
-version = "0.21.2"
+version = "0.21.3"
 
 plugins {
     kotlin("jvm") version "1.4.10"
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("me.jakejmattson:DiscordKt:0.21.2")
+    implementation("me.jakejmattson:DiscordKt:0.21.3")
 }
 
 tasks.compileKotlin {
