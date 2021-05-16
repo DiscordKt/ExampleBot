@@ -1,17 +1,18 @@
 group = "me.jakejmattson"
-version = "0.21.3"
+version = "0.22.0-SNAPSHOT"
 
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm") version "1.4.32"
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
-    jcenter()
+    maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
 
 dependencies {
-    implementation("me.jakejmattson:DiscordKt:0.21.3")
+    implementation("me.jakejmattson", "DiscordKt", version.toString())
 }
 
 tasks.compileKotlin {

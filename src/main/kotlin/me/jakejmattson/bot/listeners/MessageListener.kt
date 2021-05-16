@@ -1,6 +1,6 @@
 package me.jakejmattson.bot.listeners
 
-import com.gitlab.kordlib.core.event.message.MessageCreateEvent
+import dev.kord.core.event.message.MessageCreateEvent
 import me.jakejmattson.discordkt.api.dsl.listeners
 
 //Create a block of listeners.

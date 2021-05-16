@@ -1,6 +1,7 @@
 package me.jakejmattson.bot.commands
 
-import com.gitlab.kordlib.kordx.emoji.Emojis
+import dev.kord.common.kColor
+import dev.kord.x.emoji.Emojis
 import me.jakejmattson.discordkt.api.dsl.commands
 import java.awt.Color
 
@@ -47,5 +48,5 @@ fun basics() = commands("Basics") {
     }
 }
 
-private fun genRandomColor() = Color(genRandomRGB(), genRandomRGB(), genRandomRGB())
+private fun genRandomColor() = Color(genRandomRGB(), genRandomRGB(), genRandomRGB()).kColor
 private fun genRandomRGB() = (0..255).random()

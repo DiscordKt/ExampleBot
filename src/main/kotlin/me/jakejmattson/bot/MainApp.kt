@@ -1,12 +1,20 @@
 package me.jakejmattson.bot
 
-import com.gitlab.kordlib.gateway.Intent
-import com.gitlab.kordlib.kordx.emoji.Emojis
+import dev.kord.common.annotation.KordPreview
+import dev.kord.common.entity.Snowflake
+import dev.kord.common.kColor
+import dev.kord.core.behavior.channel.createEmbed
+import dev.kord.core.behavior.channel.createMessage
+import dev.kord.core.entity.channel.MessageChannel
+import dev.kord.gateway.Intents
+import dev.kord.x.emoji.Emojis
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.toList
 import me.jakejmattson.discordkt.api.dsl.bot
 import me.jakejmattson.discordkt.api.extensions.*
 import java.awt.Color
 
+@KordPreview
 suspend fun main(args: Array<String>) {
     //Get the bot token from the command line (or your preferred way).
     val token = args.firstOrNull()
@@ -38,12 +46,15 @@ suspend fun main(args: Array<String>) {
 
             //A color constant for your bot - typically used in embeds.
             theme = Color(0x00BFFF)
+
+            //Configure the Discord Gateway intents for your bot.
+            intents = Intents.nonPrivileged.values
         }
 
         //An embed sent whenever someone solely mentions your bot ('@Bot').
         mentionEmbed {
             title = "Hello World"
-            color = it.discord.configuration.theme
+            color = it.discord.configuration.theme?.kColor
 
             author {
                 with(it.author) {
@@ -54,7 +65,7 @@ suspend fun main(args: Array<String>) {
             }
 
             thumbnail {
-                url = it.discord.api.getSelf().avatar.url
+                url = it.discord.kord.getSelf().avatar.url
             }
 
             footer {
@@ -75,14 +86,9 @@ suspend fun main(args: Array<String>) {
             playing("DiscordKt Example")
         }
 
-        //Configure the Discord Gateway intents for your bot.
-        intents {
-            +Intent.GuildMessages
-        }
-
         //This is run once the bot has finished setup and logged in.
         onStart {
-            val guilds = api.guilds.toList().joinToString { it.name }
+            val guilds = kord.guilds.toList().joinToString { it.name }
             println("Guilds: $guilds")
         }
     }
