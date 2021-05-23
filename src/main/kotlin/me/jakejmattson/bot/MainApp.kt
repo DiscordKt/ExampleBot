@@ -41,6 +41,9 @@ suspend fun main(args: Array<String>) {
             //Whether or not to recommend commands when an invalid one is invoked.
             recommendCommands = true
 
+            //Allow users to search for a command by typing 'search <command name>'.
+            enableSearch = true
+
             //An emoji added when a command is invoked (use 'null' to disable this).
             commandReaction = Emojis.eyes
 
