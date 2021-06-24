@@ -1,17 +1,14 @@
 package me.jakejmattson.bot
 
 import dev.kord.common.annotation.KordPreview
-import dev.kord.common.entity.Snowflake
 import dev.kord.common.kColor
-import dev.kord.core.behavior.channel.createEmbed
-import dev.kord.core.behavior.channel.createMessage
-import dev.kord.core.entity.channel.MessageChannel
 import dev.kord.gateway.Intents
 import dev.kord.x.emoji.Emojis
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.toList
 import me.jakejmattson.discordkt.api.dsl.bot
-import me.jakejmattson.discordkt.api.extensions.*
+import me.jakejmattson.discordkt.api.extensions.addField
+import me.jakejmattson.discordkt.api.extensions.profileLink
+import me.jakejmattson.discordkt.api.locale.Language
 import java.awt.Color
 
 @KordPreview
@@ -93,6 +90,13 @@ suspend fun main(args: Array<String>) {
         onStart {
             val guilds = kord.guilds.toList().joinToString { it.name }
             println("Guilds: $guilds")
+        }
+
+        //Configure the locale for this bot.
+        localeOf(Language.EN) {
+            helpName = "Help"
+            helpCategory = "Utility"
+            commandRecommendation = "Recommendation: {0}"
         }
     }
 }

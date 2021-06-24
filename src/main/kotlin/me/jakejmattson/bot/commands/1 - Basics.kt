@@ -1,8 +1,11 @@
 package me.jakejmattson.bot.commands
 
+import dev.kord.common.entity.ButtonStyle
 import dev.kord.common.kColor
 import dev.kord.x.emoji.Emojis
+import dev.kord.x.emoji.toReaction
 import me.jakejmattson.discordkt.api.dsl.commands
+import me.jakejmattson.discordkt.api.dsl.precondition
 import java.awt.Color
 
 //To register commands, use the 'commands' builder function.
@@ -30,7 +33,7 @@ fun basics() = commands("Basics") {
     command("Menu") {
         description = "Create a menu message."
         execute {
-            //You can also create embeds with multiple pages and custom reactions.
+            //You can also create embeds with multiple pages and custom buttons.
             respondMenu {
                 page {
                     title = "Page 1"
@@ -40,8 +43,24 @@ fun basics() = commands("Basics") {
                     title = "Page 2"
                 }
 
-                reaction(Emojis.rainbow) {
-                    color = genRandomColor()
+                //Creates a new button row
+                buttons {
+                    //Exposes the menu for navigation functions.
+                    button("Left", Emojis.arrowLeft) {
+                        previousPage()
+                    }
+
+                    button("Right", Emojis.arrowRight) {
+                        nextPage()
+                    }
+
+                    //Exposes the current embed page to be edited.
+                    editButton("Rainbow", Emojis.rainbow) {
+                        color = genRandomColor()
+                    }
+
+                    //Opens the specified link in the browser.
+                    linkButton("https://github.com/DiscordKt/ExampleBot", "Source", Emojis.pageFacingUp)
                 }
             }
         }

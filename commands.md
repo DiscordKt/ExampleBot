@@ -3,7 +3,7 @@
 ## Key 
 | Symbol      | Meaning                        |
 | ----------- | ------------------------------ |
-| (Argument)  | Argument is not required.      |
+| [Argument]  | Argument is not required.      |
 | Argument... | Accepts many of this argument. |
 
 ## Arguments
@@ -43,9 +43,9 @@
 ## Optional
 | Commands    | Arguments          | Description                           |
 | ----------- | ------------------ | ------------------------------------- |
-| Number      | (Integer)          | Enter any number to see the next one. |
-| OptionalAdd | Integer, (Integer) | Add one or two numbers together.      |
-| User        | (User)             | Provides the tag of a given user.     |
+| Number      | [Integer]          | Enter any number to see the next one. |
+| OptionalAdd | Integer, [Integer] | Add one or two numbers together.      |
+| User        | [User]             | Provides the tag of a given user.     |
 
 ## Overload
 | Commands | Arguments | Description                               |
@@ -69,5 +69,5 @@
 ## Utility
 | Commands | Arguments | Description          |
 | -------- | --------- | -------------------- |
-| Help     | (Command) | Display a help menu. |
+| Help     | [Command] | Display a help menu. |
 
