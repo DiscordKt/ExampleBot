@@ -4,7 +4,6 @@ import dev.kord.common.Color
 import dev.kord.x.emoji.Emojis
 import me.jakejmattson.discordkt.api.arguments.AnyArg
 import me.jakejmattson.discordkt.api.arguments.IntegerArg
-import me.jakejmattson.discordkt.api.dsl.PromptedReaction
 import me.jakejmattson.discordkt.api.dsl.commands
 import me.jakejmattson.discordkt.api.dsl.conversation
 
@@ -12,12 +11,16 @@ fun numberConversation() = conversation("exit") {
     val name = promptMessage(AnyArg, "What is your name?")
     val age = promptMessage(IntegerArg, "How old are you?")
 
-    val response = promptReaction(
-        PromptedReaction(Emojis.whiteCheckMark, "Yes it's great!", "Glad you like the lib."),
-        PromptedReaction(Emojis.x, "Not a fan.", "You should let me know how to fix the lib.")
-    ) {
-        title = "Do you like DiscordKt?"
-        color = Color(0x00bfff)
+    val response = promptButton<String> {
+        embed {
+            title = "Do you like DiscordKt?"
+            color = Color(0x00bfff)
+        }
+
+        buttons {
+            button("Yes", Emojis.whiteCheckMark, "Glad you like it")
+            button("No", Emojis.x, "You should let me know how to fix the lib.")
+        }
     }
 
     respond("Nice to meet you $name! $age is a great age. $response")

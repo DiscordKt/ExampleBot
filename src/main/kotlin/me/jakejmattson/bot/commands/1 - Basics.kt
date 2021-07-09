@@ -60,7 +60,7 @@ fun basics() = commands("Basics") {
                     }
 
                     //Opens the specified link in the browser.
-                    linkButton("https://github.com/DiscordKt/ExampleBot", "Source", Emojis.pageFacingUp)
+                    linkButton("Source", Emojis.pageFacingUp, "https://github.com/DiscordKt/ExampleBot")
                 }
             }
         }
