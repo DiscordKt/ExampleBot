@@ -54,6 +54,12 @@
 |          | Any       |                                           |
 |          | Integer   |                                           |
 
+## Permissions
+| Commands   | Arguments | Description                               |
+| ---------- | --------- | ----------------------------------------- |
+| BotOwner   |           | Command requiring BOT_OWNER permissions   |
+| GuildOwner |           | Command requiring GUILD_OWNER permissions |
+
 ## Preconditions
 | Commands     | Arguments | Description                            |
 | ------------ | --------- | -------------------------------------- |

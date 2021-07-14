@@ -1,11 +1,8 @@
 package me.jakejmattson.bot.commands
 
-import dev.kord.common.entity.ButtonStyle
 import dev.kord.common.kColor
 import dev.kord.x.emoji.Emojis
-import dev.kord.x.emoji.toReaction
 import me.jakejmattson.discordkt.api.dsl.commands
-import me.jakejmattson.discordkt.api.dsl.precondition
 import java.awt.Color
 
 //To register commands, use the 'commands' builder function.

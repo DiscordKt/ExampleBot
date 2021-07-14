@@ -5,6 +5,7 @@ import dev.kord.common.kColor
 import dev.kord.gateway.Intents
 import dev.kord.x.emoji.Emojis
 import kotlinx.coroutines.flow.toList
+import me.jakejmattson.bot.services.Permissions
 import me.jakejmattson.discordkt.api.dsl.bot
 import me.jakejmattson.discordkt.api.extensions.addField
 import me.jakejmattson.discordkt.api.extensions.profileLink
@@ -49,6 +50,9 @@ suspend fun main(args: Array<String>) {
 
             //Configure the Discord Gateway intents for your bot.
             intents = Intents.nonPrivileged.values
+
+            //Set bot permissions with a default value for all commands.
+            permissions(commandDefault = Permissions.EVERYONE)
         }
 
         //An embed sent whenever someone solely mentions your bot ('@Bot').
@@ -74,11 +78,6 @@ suspend fun main(args: Array<String>) {
             }
 
             addField("Prefix", it.prefix())
-        }
-
-        //Determine if the given command can be run with these conditions.
-        permissions {
-            true
         }
 
         //The Discord presence shown on your bot.
