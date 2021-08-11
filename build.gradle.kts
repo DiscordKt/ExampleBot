@@ -1,17 +1,16 @@
 group = "me.jakejmattson"
-version = "0.21.3"
+version = "0.22.0"
 
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm") version "1.5.21"
 }
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
-    implementation("me.jakejmattson:DiscordKt:0.21.3")
+    implementation("me.jakejmattson", "DiscordKt", version.toString())
 }
 
 tasks.compileKotlin {

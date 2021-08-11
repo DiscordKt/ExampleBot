@@ -36,7 +36,7 @@ fun arguments() = commands("Arguments") {
     command("Sum") {
         description = "Sum a list of integers."
         //You can also accept multiple of any type.
-        execute(MultipleArg(IntegerArg)) {
+        execute(IntegerArg.multiple()) {
             val numbers = args.first
             respond(numbers.sum())
         }
