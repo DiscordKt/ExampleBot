@@ -11,7 +11,7 @@
 | -------- | ----------------------------------- | ---------------------------- |
 | Echo     | Text                                | Echo the input back.         |
 | Junk     | Integer, Any, User, Channel, Double | Accept a bunch of arguments. |
-| Sum      | Integer                             | Sum a list of integers.      |
+| Sum      | Integer...                          | Sum a list of integers.      |
 
 ## Basics
 | Commands | Arguments | Description              |

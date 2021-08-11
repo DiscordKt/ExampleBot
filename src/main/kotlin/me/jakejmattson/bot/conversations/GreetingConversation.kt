@@ -7,9 +7,12 @@ import me.jakejmattson.discordkt.api.arguments.IntegerArg
 import me.jakejmattson.discordkt.api.conversations.conversation
 import me.jakejmattson.discordkt.api.dsl.commands
 
-fun numberConversation() = conversation("exit") {
-    val name = promptMessage(AnyArg, "What is your name?")
-    val age = promptMessage(IntegerArg, "How old are you?")
+fun greetingConversation() = conversation("exit", 5) {
+    val name = prompt(AnyArg, "What is your name?")
+
+    val age = prompt(IntegerArg) {
+        title = "How old are you?"
+    }
 
     val response = promptButton<String> {
         embed {
@@ -30,7 +33,7 @@ fun conversationCommands() = commands("Conversation") {
     command("Public") {
         description = "Start a conversation in a public channel."
         execute {
-            val result = numberConversation().startPublicly(discord, author, channel)
+            val result = greetingConversation().startPublicly(discord, author, channel)
             println(result)
         }
     }
@@ -38,7 +41,7 @@ fun conversationCommands() = commands("Conversation") {
     command("Private") {
         description = "Starts a conversation in a private channel."
         execute {
-            val result = numberConversation().startPrivately(discord, author)
+            val result = greetingConversation().startPrivately(discord, author)
             println(result)
         }
     }

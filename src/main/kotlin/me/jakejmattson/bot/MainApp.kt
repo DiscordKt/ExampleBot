@@ -22,7 +22,7 @@ suspend fun main(args: Array<String>) {
     bot(token) {
         //Dynamically determine the prefix used for commands.
         prefix {
-            "+"
+            "ex!"
         }
 
         //Simple configuration options
@@ -49,7 +49,7 @@ suspend fun main(args: Array<String>) {
             theme = Color(0x00BFFF)
 
             //Configure the Discord Gateway intents for your bot.
-            intents = Intents.nonPrivileged.values
+            intents = Intents.nonPrivileged
 
             //Set bot permissions with a default value for all commands.
             permissions(commandDefault = Permissions.EVERYONE)

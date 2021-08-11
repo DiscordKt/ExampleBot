@@ -32,13 +32,8 @@ fun basics() = commands("Basics") {
         execute {
             //You can also create embeds with multiple pages and custom buttons.
             respondMenu {
-                page {
-                    title = "Page 1"
-                }
-
-                page {
-                    title = "Page 2"
-                }
+                page { title = "Page 1" }
+                page { title = "Page 2" }
 
                 //Creates a new button row
                 buttons {
