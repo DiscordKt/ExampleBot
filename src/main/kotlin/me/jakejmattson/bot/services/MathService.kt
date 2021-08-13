@@ -2,7 +2,7 @@ package me.jakejmattson.bot.services
 
 import me.jakejmattson.discordkt.api.annotations.Service
 import me.jakejmattson.discordkt.api.arguments.IntegerArg
-import me.jakejmattson.discordkt.api.dsl.commands
+import me.jakejmattson.discordkt.api.commands.commands
 
 //A service defines logic that can be used somewhere else.
 //This prevents duplicating code and cluttering commands.

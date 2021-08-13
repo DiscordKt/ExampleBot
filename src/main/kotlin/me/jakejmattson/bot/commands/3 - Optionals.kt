@@ -2,7 +2,7 @@ package me.jakejmattson.bot.commands
 
 import me.jakejmattson.discordkt.api.arguments.IntegerArg
 import me.jakejmattson.discordkt.api.arguments.UserArg
-import me.jakejmattson.discordkt.api.dsl.commands
+import me.jakejmattson.discordkt.api.commands.commands
 
 //Arguments can also be given optionally, and fall back to a default value if not provided by the user.
 fun optionals() = commands("Optional") {

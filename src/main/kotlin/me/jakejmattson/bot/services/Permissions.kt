@@ -2,7 +2,7 @@ package me.jakejmattson.bot.services
 
 import me.jakejmattson.discordkt.api.dsl.PermissionContext
 import me.jakejmattson.discordkt.api.dsl.PermissionSet
-import me.jakejmattson.discordkt.api.dsl.commands
+import me.jakejmattson.discordkt.api.commands.commands
 
 //This enum defines a hierarchy of permissions - commands are marked as requiring a certain permission level
 //If a user meets or exceeds that permission level, they can execute the command

@@ -2,7 +2,7 @@ package me.jakejmattson.bot.commands
 
 import me.jakejmattson.discordkt.api.arguments.AnyArg
 import me.jakejmattson.discordkt.api.arguments.IntegerArg
-import me.jakejmattson.discordkt.api.dsl.commands
+import me.jakejmattson.discordkt.api.commands.commands
 
 fun overload() = commands("Overload") {
     //Commands can be overloaded - have multiple execute blocks.

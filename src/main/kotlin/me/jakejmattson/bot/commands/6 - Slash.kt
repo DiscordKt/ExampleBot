@@ -1,7 +1,7 @@
 package me.jakejmattson.bot.commands
 
 import me.jakejmattson.discordkt.api.arguments.*
-import me.jakejmattson.discordkt.api.dsl.commands
+import me.jakejmattson.discordkt.api.commands.commands
 
 fun slash() = commands("Slash") {
     slash("Slash") {

@@ -2,7 +2,7 @@ package me.jakejmattson.bot.commands
 
 import dev.kord.common.kColor
 import dev.kord.x.emoji.Emojis
-import me.jakejmattson.discordkt.api.dsl.commands
+import me.jakejmattson.discordkt.api.commands.commands
 import java.awt.Color
 
 //To register commands, use the 'commands' builder function.
