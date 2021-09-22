@@ -66,11 +66,13 @@
 | Precondition |           | Show a command failing a precondition. |
 
 ## Slash
-| Commands | Arguments                             | Description                |
-| -------- | ------------------------------------- | -------------------------- |
-| Slash    |                                       | A Hello World command.     |
-| SlashAdd | First, Second                         | A simple addition command. |
-| SlashAll | Integer, Boolean, User, Role, Channel | Accepts all types          |
+| Commands | Arguments                             | Description                         |
+| -------- | ------------------------------------- | ----------------------------------- |
+| Info     | [User]                                | Get information for the target user |
+| Link     | Message                               | Get a message's jump link           |
+| Slash    |                                       | A Hello World command.              |
+| SlashAdd | First, Second                         | A simple addition command.          |
+| SlashAll | Integer, Boolean, User, Role, Channel | Accepts all types                   |
 
 ## Utility
 | Commands | Arguments | Description          |
