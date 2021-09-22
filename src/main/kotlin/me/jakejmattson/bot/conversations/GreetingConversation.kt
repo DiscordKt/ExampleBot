@@ -7,7 +7,7 @@ import me.jakejmattson.discordkt.api.arguments.IntegerArg
 import me.jakejmattson.discordkt.api.conversations.conversation
 import me.jakejmattson.discordkt.api.commands.commands
 
-fun greetingConversation() = conversation("exit", 5) {
+fun greetingConversation() = conversation("exit", 30) {
     val name = prompt(AnyArg, "What is your name?")
 
     val age = prompt(IntegerArg) {
@@ -21,12 +21,17 @@ fun greetingConversation() = conversation("exit", 5) {
         }
 
         buttons {
-            button("Yes", Emojis.whiteCheckMark, "Glad you like it")
+            button("Yes", Emojis.whiteCheckMark, "Glad you like it.")
             button("No", Emojis.x, "You should let me know how to fix the lib.")
         }
     }
 
-    respond("Nice to meet you $name! $age is a great age. $response")
+    val selection = promptSelect("A", "B", "C") {
+        title = "Selection"
+        description = "What's your favorite letter?"
+    }
+
+    respond("Nice to meet you $name ($age)! $response $selection is my favorite letter too.")
 }
 
 fun conversationCommands() = commands("Conversation") {
