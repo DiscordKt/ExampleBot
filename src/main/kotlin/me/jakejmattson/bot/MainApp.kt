@@ -1,10 +1,10 @@
 package me.jakejmattson.bot
 
 import dev.kord.common.annotation.KordPreview
-import dev.kord.common.kColor
 import dev.kord.gateway.Intents
 import dev.kord.x.emoji.Emojis
 import kotlinx.coroutines.flow.toList
+import me.jakejmattson.bot.data.Configuration
 import me.jakejmattson.bot.services.Permissions
 import me.jakejmattson.discordkt.api.dsl.bot
 import me.jakejmattson.discordkt.api.extensions.addField
@@ -15,14 +15,14 @@ import java.awt.Color
 @KordPreview
 suspend fun main(args: Array<String>) {
     //Get the bot token from the command line (or your preferred way).
-    val token = args.firstOrNull()
-    require(token != null) { "Expected the bot token as a command line argument!" }
-
     //Start the bot and set configuration options.
-    bot(token) {
+    bot(args.firstOrNull()) {
+        //See the Data example
+        val configuration = data("config/config.json") { Configuration() }
+
         //Dynamically determine the prefix used for commands.
         prefix {
-            "ex!"
+            configuration.prefix
         }
 
         //Simple configuration options
@@ -30,13 +30,13 @@ suspend fun main(args: Array<String>) {
             //Allow a mention to be used in front of commands ('@Bot help`).
             allowMentionPrefix = true
 
-            //Whether or not to generate documentation for registered commands.
+            //Whether to generate documentation for registered commands.
             generateCommandDocs = true
 
-            //Whether or not to show registered entity information on startup.
+            //Whether to show registered entity information on startup.
             showStartupLog = true
 
-            //Whether or not to recommend commands when an invalid one is invoked.
+            //Whether to recommend commands when an invalid one is invoked.
             recommendCommands = true
 
             //Allow users to search for a command by typing 'search <command name>'.
@@ -58,7 +58,7 @@ suspend fun main(args: Array<String>) {
         //An embed sent whenever someone solely mentions your bot ('@Bot').
         mentionEmbed {
             title = "Hello World"
-            color = it.discord.configuration.theme?.kColor
+            color = it.discord.configuration.theme
 
             author {
                 with(it.author) {

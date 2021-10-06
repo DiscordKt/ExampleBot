@@ -3,6 +3,7 @@ version = "0.23.0-SNAPSHOT"
 
 plugins {
     kotlin("jvm") version "1.5.31"
+    kotlin("plugin.serialization") version "1.5.31"
 }
 
 repositories {

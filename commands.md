@@ -33,6 +33,12 @@
 | Private  |           | Starts a conversation in a private channel. |
 | Public   |           | Start a conversation in a public channel.   |
 
+## Data
+| Commands | Arguments | Description                            |
+| -------- | --------- | -------------------------------------- |
+| Data     |           | Display the Data from the config file. |
+| SetData  | Integer   | Modify the Data from the config file.  |
+
 ## Math
 | Commands | Arguments        | Description                    |
 | -------- | ---------------- | ------------------------------ |
