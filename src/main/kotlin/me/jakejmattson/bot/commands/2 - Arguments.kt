@@ -1,7 +1,7 @@
 package me.jakejmattson.bot.commands
 
-import me.jakejmattson.discordkt.api.arguments.*
-import me.jakejmattson.discordkt.api.commands.commands
+import me.jakejmattson.discordkt.arguments.*
+import me.jakejmattson.discordkt.commands.commands
 
 //Most of the time, you will want your commands to accept input.
 //This can be accomplished with the different ArgumentTypes.

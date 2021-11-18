@@ -1,7 +1,7 @@
 package me.jakejmattson.bot.preconditions
 
-import me.jakejmattson.discordkt.api.commands.commands
-import me.jakejmattson.discordkt.api.dsl.precondition
+import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.dsl.precondition
 
 //Preconditions are a way to make sure that a command is allowed to be run.
 fun namePrecondition() = precondition {

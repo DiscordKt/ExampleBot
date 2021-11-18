@@ -1,8 +1,8 @@
 package me.jakejmattson.bot.services
 
-import me.jakejmattson.discordkt.api.annotations.Service
-import me.jakejmattson.discordkt.api.arguments.IntegerArg
-import me.jakejmattson.discordkt.api.commands.commands
+import me.jakejmattson.discordkt.annotations.Service
+import me.jakejmattson.discordkt.arguments.IntegerArg
+import me.jakejmattson.discordkt.commands.commands
 
 //A service defines logic that can be used somewhere else.
 //This prevents duplicating code and cluttering commands.

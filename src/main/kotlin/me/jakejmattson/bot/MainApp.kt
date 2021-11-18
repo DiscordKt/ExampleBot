@@ -6,10 +6,12 @@ import dev.kord.x.emoji.Emojis
 import kotlinx.coroutines.flow.toList
 import me.jakejmattson.bot.data.Configuration
 import me.jakejmattson.bot.services.Permissions
-import me.jakejmattson.discordkt.api.dsl.bot
-import me.jakejmattson.discordkt.api.extensions.addField
-import me.jakejmattson.discordkt.api.extensions.profileLink
-import me.jakejmattson.discordkt.api.locale.Language
+import me.jakejmattson.discordkt.dsl.CommandException
+import me.jakejmattson.discordkt.dsl.ListenerException
+import me.jakejmattson.discordkt.dsl.bot
+import me.jakejmattson.discordkt.extensions.*
+import me.jakejmattson.discordkt.locale.Language
+import org.w3c.dom.events.EventException
 import java.awt.Color
 
 @KordPreview
@@ -60,24 +62,20 @@ suspend fun main(args: Array<String>) {
             title = "Hello World"
             color = it.discord.configuration.theme
 
-            author {
-                with(it.author) {
-                    icon = avatar.url
-                    name = tag
-                    url = profileLink
-                }
-            }
-
-            thumbnail {
-                url = it.discord.kord.getSelf().avatar.url
-            }
-
-            footer {
-                val versions = it.discord.versions
-                text = "${versions.library} - ${versions.kord} - ${versions.kotlin}"
-            }
-
+            author(it.author)
+            thumbnail(it.discord.kord.getSelf().pfpUrl)
             addField("Prefix", it.prefix())
+            footer(it.discord.versions.toString())
+        }
+
+        onException {
+            if (exception is IllegalArgumentException)
+                return@onException
+
+            when (this) {
+                is CommandException -> println("Exception '${exception::class.simpleName}' in command ${event.command?.name}")
+                is ListenerException -> println("Exception '${exception::class.simpleName}' in listener ${event::class.simpleName}")
+            }
         }
 
         //The Discord presence shown on your bot.

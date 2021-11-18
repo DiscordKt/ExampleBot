@@ -1,6 +1,6 @@
 package me.jakejmattson.bot.commands
 
-import me.jakejmattson.discordkt.api.commands.commands
+import me.jakejmattson.discordkt.commands.commands
 
 //There are different builders for different types of commands.
 //This allows more type-safe access to data, such as channels.

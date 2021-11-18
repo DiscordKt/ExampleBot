@@ -1,14 +1,15 @@
 package me.jakejmattson.bot.commands
 
-import me.jakejmattson.discordkt.api.arguments.*
-import me.jakejmattson.discordkt.api.commands.commands
-import me.jakejmattson.discordkt.api.extensions.jumpLink
+import me.jakejmattson.discordkt.arguments.*
+import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.extensions.jumpLink
+import me.jakejmattson.discordkt.extensions.pfpUrl
 
 fun slash() = commands("Slash") {
     slash("Slash") {
         description = "A Hello World command."
         execute {
-            respond("Hello World!")
+            respond("Hello World!", ephemeral = true)
         }
     }
 
@@ -45,7 +46,7 @@ fun slash() = commands("Slash") {
                 description = user.id.asString
 
                 thumbnail {
-                    url = user.avatar.url
+                    url = user.pfpUrl
                 }
             }
         }

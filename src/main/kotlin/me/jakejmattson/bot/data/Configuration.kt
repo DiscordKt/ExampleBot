@@ -2,9 +2,10 @@ package me.jakejmattson.bot.data
 
 import dev.kord.common.entity.Snowflake
 import kotlinx.serialization.Serializable
-import me.jakejmattson.discordkt.api.arguments.IntegerArg
-import me.jakejmattson.discordkt.api.commands.commands
-import me.jakejmattson.discordkt.api.dsl.Data
+import me.jakejmattson.discordkt.arguments.IntegerArg
+import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.dsl.Data
+import me.jakejmattson.discordkt.extensions.pfpUrl
 
 //A Data class is a serializable set of data stored in a file as JSON.
 //These classes can be loaded in the main bot function and saved once modified.
@@ -25,7 +26,7 @@ fun dataCommands(configuration: Configuration) = commands("Data") {
                 description = "My favorite number is ${configuration.favoriteNumber}"
 
                 thumbnail {
-                    url = owner.avatar.url
+                    url = owner.pfpUrl
                 }
             }
         }

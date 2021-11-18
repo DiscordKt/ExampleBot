@@ -1,15 +1,16 @@
 package me.jakejmattson.bot.services
 
-import me.jakejmattson.discordkt.api.dsl.PermissionContext
-import me.jakejmattson.discordkt.api.dsl.PermissionSet
-import me.jakejmattson.discordkt.api.commands.commands
+import me.jakejmattson.discordkt.dsl.PermissionContext
+import me.jakejmattson.discordkt.dsl.PermissionSet
+import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.extensions.toSnowflake
 
 //This enum defines a hierarchy of permissions - commands are marked as requiring a certain permission level
 //If a user meets or exceeds that permission level, they can execute the command
 //This enum must be registered in the configure block along with a default command permission
 enum class Permissions : PermissionSet {
     BOT_OWNER {
-        override suspend fun hasPermission(context: PermissionContext) = context.user.id.value == 298168112824582154
+        override suspend fun hasPermission(context: PermissionContext) = context.user.id == 298168112824582154.toSnowflake()
     },
     GUILD_OWNER {
         override suspend fun hasPermission(context: PermissionContext) = context.getMember()?.isOwner() ?: false
