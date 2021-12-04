@@ -1,8 +1,8 @@
 package me.jakejmattson.bot.services
 
+import me.jakejmattson.discordkt.commands.commands
 import me.jakejmattson.discordkt.dsl.PermissionContext
 import me.jakejmattson.discordkt.dsl.PermissionSet
-import me.jakejmattson.discordkt.commands.commands
 import me.jakejmattson.discordkt.extensions.toSnowflake
 
 //This enum defines a hierarchy of permissions - commands are marked as requiring a certain permission level

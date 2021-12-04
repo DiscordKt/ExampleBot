@@ -4,8 +4,8 @@ import dev.kord.common.Color
 import dev.kord.x.emoji.Emojis
 import me.jakejmattson.discordkt.arguments.AnyArg
 import me.jakejmattson.discordkt.arguments.IntegerArg
-import me.jakejmattson.discordkt.conversations.conversation
 import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.conversations.conversation
 
 fun greetingConversation() = conversation("exit", 30) {
     val name = prompt(AnyArg, "What is your name?")

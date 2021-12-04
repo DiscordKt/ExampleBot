@@ -43,7 +43,7 @@ fun slash() = commands("Slash") {
 
             respond {
                 title = user.username
-                description = user.id.asString
+                description = user.id.toString()
 
                 thumbnail {
                     url = user.pfpUrl

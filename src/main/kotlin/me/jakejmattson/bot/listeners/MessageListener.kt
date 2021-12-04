@@ -1,7 +1,6 @@
 package me.jakejmattson.bot.listeners
 
 import dev.kord.core.event.message.MessageCreateEvent
-import dev.kord.core.event.message.ReactionAddEvent
 import me.jakejmattson.discordkt.dsl.listeners
 
 //Create a block of listeners.

@@ -11,7 +11,6 @@ import me.jakejmattson.discordkt.dsl.ListenerException
 import me.jakejmattson.discordkt.dsl.bot
 import me.jakejmattson.discordkt.extensions.*
 import me.jakejmattson.discordkt.locale.Language
-import org.w3c.dom.events.EventException
 import java.awt.Color
 
 @KordPreview
