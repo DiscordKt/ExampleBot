@@ -1,28 +1,26 @@
 package me.jakejmattson.bot.services
 
+import me.jakejmattson.bot.data.Configuration
 import me.jakejmattson.discordkt.commands.commands
-import me.jakejmattson.discordkt.dsl.PermissionContext
+import me.jakejmattson.discordkt.dsl.Permission
 import me.jakejmattson.discordkt.dsl.PermissionSet
-import me.jakejmattson.discordkt.extensions.toSnowflake
+import me.jakejmattson.discordkt.dsl.permission
 
 //This enum defines a hierarchy of permissions - commands are marked as requiring a certain permission level
 //If a user meets or exceeds that permission level, they can execute the command
 //This enum must be registered in the configure block along with a default command permission
-enum class Permissions : PermissionSet {
-    BOT_OWNER {
-        override suspend fun hasPermission(context: PermissionContext) = context.user.id == 298168112824582154.toSnowflake()
-    },
-    GUILD_OWNER {
-        override suspend fun hasPermission(context: PermissionContext) = context.getMember()?.isOwner() ?: false
-    },
-    EVERYONE {
-        override suspend fun hasPermission(context: PermissionContext) = true
-    }
+object Permissions : PermissionSet {
+    val BOT_OWNER = permission("Bot Owner") { users(discord.getInjectionObjects<Configuration>().botOwner) }
+    val GUILD_OWNER = permission("Guild Owner") { users(guild!!.ownerId) }
+    val EVERYONE = permission("Everyone") { roles(guild!!.everyoneRole.id) }
+
+    override val hierarchy: List<Permission> = listOf(EVERYONE, GUILD_OWNER, BOT_OWNER)
+    override val commandDefault: Permission = EVERYONE
 }
 
 //The commands builder can accept a required permission that will be applied to all commands in this category
 fun permissionCommands() = commands("Permissions", Permissions.BOT_OWNER) {
-    command("BotOwner") {
+    slash("BotOwner") {
         description = "Command requiring BOT_OWNER permissions"
         execute {
             respond("Hello bot owner!")
@@ -30,7 +28,7 @@ fun permissionCommands() = commands("Permissions", Permissions.BOT_OWNER) {
     }
 
     //Commands within a category can override the permission level of that category
-    command("GuildOwner") {
+    slash("GuildOwner") {
         description = "Command requiring GUILD_OWNER permissions"
         requiredPermission = Permissions.GUILD_OWNER
         execute {

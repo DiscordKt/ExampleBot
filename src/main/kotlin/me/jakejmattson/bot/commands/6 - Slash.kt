@@ -1,7 +1,9 @@
 package me.jakejmattson.bot.commands
 
+import me.jakejmattson.bot.services.Permissions
 import me.jakejmattson.discordkt.arguments.*
 import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.dsl.Permission
 import me.jakejmattson.discordkt.extensions.jumpLink
 import me.jakejmattson.discordkt.extensions.pfpUrl
 
@@ -41,7 +43,7 @@ fun slash() = commands("Slash") {
         execute(UserArg.optional { it.author }) {
             val user = args.first
 
-            respond {
+            respond(false) {
                 title = user.username
                 description = user.id.toString()
 

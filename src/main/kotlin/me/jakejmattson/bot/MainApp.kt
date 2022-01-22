@@ -52,8 +52,8 @@ suspend fun main(args: Array<String>) {
             //Configure the Discord Gateway intents for your bot.
             intents = Intents.nonPrivileged
 
-            //Set bot permissions with a default value for all commands.
-            permissions(commandDefault = Permissions.EVERYONE)
+            //PermissionSet implementation to control command permissions.
+            permissions = Permissions
         }
 
         //An embed sent whenever someone solely mentions your bot ('@Bot').
