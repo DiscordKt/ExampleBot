@@ -33,7 +33,7 @@ fun dataCommands(configuration: Configuration) = commands("Data") {
     }
 
     command("SetData") {
-        description = "Modify the Data from the config file."
+        description = "Modify the Data from the config file"
         execute(IntegerArg) {
             val input = args.first
             configuration.favoriteNumber = input

@@ -1,6 +1,7 @@
 package me.jakejmattson.bot
 
 import dev.kord.common.annotation.KordPreview
+import dev.kord.common.entity.Snowflake
 import dev.kord.gateway.Intents
 import dev.kord.x.emoji.Emojis
 import kotlinx.coroutines.flow.toList
@@ -84,8 +85,8 @@ suspend fun main(args: Array<String>) {
 
         //This is run once the bot has finished setup and logged in.
         onStart {
-            val guilds = kord.guilds.toList().joinToString { it.name }
-            println("Guilds: $guilds")
+            val guilds = kord.guilds.toList()
+            println("Guilds: ${guilds.joinToString { it.name }}")
         }
 
         //Configure the locale for this bot.

@@ -10,7 +10,7 @@ import java.awt.Color
 fun basics() = commands("Basics") {
     //This block creates a new command called 'Hello'.
     command("Hello") {
-        description = "A 'Hello World' command." //Descriptions are used for docs and help menus.
+        description = "A 'Hello World' command" //Descriptions are used for docs and help menus.
         execute { //The 'execute' block is what code will be run when your command is invoked.
             //The respond command can be used to send a message back to the user who ran the command.
             respond("Hello World!")
@@ -18,7 +18,7 @@ fun basics() = commands("Basics") {
     }
 
     command("Embed") {
-        description = "Create an embed message."
+        description = "Create an embed message"
         execute {
             //You can also respond with a Discord embed.
             respond {
@@ -28,7 +28,7 @@ fun basics() = commands("Basics") {
     }
 
     command("Menu") {
-        description = "Create a menu message."
+        description = "Create a menu message"
         execute {
             //You can also create embeds with multiple pages and custom buttons.
             respondMenu {

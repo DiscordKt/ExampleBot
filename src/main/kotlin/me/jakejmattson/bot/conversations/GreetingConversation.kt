@@ -36,7 +36,7 @@ fun greetingConversation() = conversation("exit", 30) {
 
 fun conversationCommands() = commands("Conversation") {
     command("Public") {
-        description = "Start a conversation in a public channel."
+        description = "Start a conversation in a public channel"
         execute {
             val result = greetingConversation().startPublicly(discord, author, channel)
             println(result)
@@ -44,7 +44,7 @@ fun conversationCommands() = commands("Conversation") {
     }
 
     command("Private") {
-        description = "Starts a conversation in a private channel."
+        description = "Starts a conversation in a private channel"
         execute {
             val result = greetingConversation().startPrivately(discord, author)
             println(result)

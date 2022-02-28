@@ -7,7 +7,7 @@ import me.jakejmattson.discordkt.commands.commands
 //This can be accomplished with the different ArgumentTypes.
 fun arguments() = commands("Arguments") {
     command("Echo") {
-        description = "Echo the input back."
+        description = "Echo the input back"
         execute(EveryArg) {
             //All user input will be contained in 'args' with the correct type information.
             //If the execute block is run, you can guarantee that the data is there.
@@ -17,7 +17,7 @@ fun arguments() = commands("Arguments") {
     }
 
     command("Junk") {
-        description = "Accept a bunch of arguments."
+        description = "Accept a bunch of arguments"
         //You can accept as many arguments as you want.
         execute(IntegerArg, AnyArg, UserArg, ChannelArg, DoubleArg) {
             val (int, word, user, channel, double) = args
@@ -34,7 +34,7 @@ fun arguments() = commands("Arguments") {
     }
 
     command("Sum") {
-        description = "Sum a list of integers."
+        description = "Sum a list of integers"
         //You can also accept multiple of any type.
         execute(IntegerArg.multiple()) {
             val numbers = args.first

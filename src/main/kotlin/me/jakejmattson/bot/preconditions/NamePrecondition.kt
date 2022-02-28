@@ -15,7 +15,7 @@ fun namePrecondition() = precondition {
 
 fun preconditions() = commands("Preconditions") {
     command("Precondition") {
-        description = "Show a command failing a precondition."
+        description = "Show a command failing a precondition"
         execute {
             //This does not run, since the above precondition fails.
             respond("Precondition passed.")

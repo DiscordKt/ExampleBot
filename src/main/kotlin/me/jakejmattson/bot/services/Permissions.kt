@@ -11,8 +11,8 @@ import me.jakejmattson.discordkt.dsl.permission
 //This enum must be registered in the configure block along with a default command permission
 object Permissions : PermissionSet {
     val BOT_OWNER = permission("Bot Owner") { users(discord.getInjectionObjects<Configuration>().botOwner) }
-    val GUILD_OWNER = permission("Guild Owner") { users(guild!!.ownerId) }
-    val EVERYONE = permission("Everyone") { roles(guild!!.everyoneRole.id) }
+    val GUILD_OWNER = guildOwner()
+    val EVERYONE = everyone()
 
     override val hierarchy: List<Permission> = listOf(EVERYONE, GUILD_OWNER, BOT_OWNER)
     override val commandDefault: Permission = EVERYONE
