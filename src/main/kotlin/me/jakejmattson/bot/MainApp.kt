@@ -30,19 +30,22 @@ suspend fun main(args: Array<String>) {
         //Simple configuration options
         configure {
             //Allow a mention to be used in front of commands ('@Bot help`).
-            allowMentionPrefix = true
-
-            //Whether to generate documentation for registered commands.
-            generateCommandDocs = true
+            mentionAsPrefix = true
 
             //Whether to show registered entity information on startup.
-            showStartupLog = true
+            logStartup = true
+
+            //Whether to generate documentation for registered commands.
+            documentCommands = true
 
             //Whether to recommend commands when an invalid one is invoked.
             recommendCommands = true
 
             //Allow users to search for a command by typing 'search <command name>'.
-            enableSearch = true
+            searchCommands = true
+
+            //Remove a command invocation message after the command is executed.
+            deleteInvocation = true
 
             //An emoji added when a command is invoked (use 'null' to disable this).
             commandReaction = Emojis.eyes
