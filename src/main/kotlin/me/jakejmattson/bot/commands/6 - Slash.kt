@@ -1,16 +1,19 @@
 package me.jakejmattson.bot.commands
 
+import dev.kord.common.entity.TextInputStyle
+import dev.kord.core.behavior.interaction.respondEphemeral
 import dev.kord.core.entity.channel.TextChannel
 import me.jakejmattson.discordkt.arguments.*
 import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.dsl.promptModal
 import me.jakejmattson.discordkt.extensions.descriptor
 import me.jakejmattson.discordkt.extensions.jumpLink
 
 fun slash() = commands("Slash") {
-    slash("Slash") {
+    slash("SlashEcho") {
         description = "A Hello World command"
-        execute {
-            respond("Hello World!")
+        execute(EveryArg.optional("Hello World")) {
+            respond(args.first)
         }
     }
 
@@ -29,9 +32,15 @@ fun slash() = commands("Slash") {
         }
     }
 
-    slash("SlashJunk") {
+    slash("SlashAll") {
         description = "Accepts a variety of slash types"
-        execute(IntegerArg, BooleanArg, UserArg, RoleArg, ChannelArg) {
+        execute(
+            IntegerArg.optional(5),
+            BooleanArg.optional(true),
+            UserArg.optional { it.author },
+            RoleArg.optional { it.guild!!.getEveryoneRole() },
+            ChannelArg<TextChannel>().optional { it.channel.asChannel() as TextChannel }
+        ) {
             val (a, b, c, d, e) = args
             respond("`$a, $b, @${c.tag}, @${d.name}, #${e.name}`")
         }

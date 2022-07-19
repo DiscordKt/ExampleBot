@@ -1,18 +1,21 @@
 package me.jakejmattson.bot
 
 import dev.kord.common.annotation.KordPreview
-import dev.kord.common.entity.Snowflake
 import dev.kord.gateway.Intents
 import dev.kord.x.emoji.Emojis
 import kotlinx.coroutines.flow.toList
 import me.jakejmattson.bot.data.Configuration
-import me.jakejmattson.bot.services.Permissions
+import me.jakejmattson.bot.services.BotPermissions
+import me.jakejmattson.discordkt.commands.SlashCommand
 import me.jakejmattson.discordkt.dsl.CommandException
 import me.jakejmattson.discordkt.dsl.ListenerException
 import me.jakejmattson.discordkt.dsl.bot
 import me.jakejmattson.discordkt.extensions.*
 import me.jakejmattson.discordkt.locale.Language
 import java.awt.Color
+import java.time.Instant
+
+val startup = Instant.now()
 
 @KordPreview
 suspend fun main(args: Array<String>) {
@@ -47,6 +50,9 @@ suspend fun main(args: Array<String>) {
             //Remove a command invocation message after the command is executed.
             deleteInvocation = true
 
+            //Allow slash commands to be invoked as text commands.
+            dualRegistry = true
+
             //An emoji added when a command is invoked (use 'null' to disable this).
             commandReaction = Emojis.eyes
 
@@ -56,8 +62,8 @@ suspend fun main(args: Array<String>) {
             //Configure the Discord Gateway intents for your bot.
             intents = Intents.nonPrivileged
 
-            //PermissionSet implementation to control command permissions.
-            permissions = Permissions
+            //Set the default permission required for slash commands.
+            defaultPermissions = BotPermissions.EVERYONE
         }
 
         //An embed sent whenever someone solely mentions your bot ('@Bot').
@@ -68,6 +74,7 @@ suspend fun main(args: Array<String>) {
             author(it.author)
             thumbnail(it.discord.kord.getSelf().pfpUrl)
             addField("Prefix", it.prefix())
+            addField("Startup", TimeStamp.at(startup, TimeStyle.RELATIVE))
             footer(it.discord.versions.toString())
         }
 

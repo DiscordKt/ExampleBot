@@ -63,8 +63,8 @@
 ## Permissions
 | Commands   | Arguments | Description                               |
 |------------|-----------|-------------------------------------------|
-| BotOwner   |           | Command requiring BOT_OWNER permissions   |
 | GuildOwner |           | Command requiring GUILD_OWNER permissions |
+| Staff      |           | Command requiring STAFF permissions       |
 
 ## Preconditions
 | Commands     | Arguments | Description                           |
@@ -72,14 +72,15 @@
 | Precondition |           | Show a command failing a precondition |
 
 ## Slash
-| Commands    | Arguments                             | Description                         |
-|-------------|---------------------------------------|-------------------------------------|
-| Info        | [User]                                | Get information for the target user |
-| Link        | Message                               | Get a message's jump link           |
-| Slash       |                                       | A Hello World command               |
-| SlashAdd    | First, Second                         | A simple addition command           |
-| SlashChoice | Names                                 | Provides a choice UI                |
-| SlashJunk   | Integer, Boolean, User, Role, Channel | Accepts a variety of slash types    |
+| Commands    | Arguments                                       | Description                         |
+|-------------|-------------------------------------------------|-------------------------------------|
+| Info        | [User]                                          | Get information for the target user |
+| Link        | Message                                         | Get a message's jump link           |
+| Modal       |                                                 | Display a modal to the user         |
+| SlashAdd    | First, Second                                   | A simple addition command           |
+| SlashAll    | [Integer], [Boolean], [User], [Role], [Channel] | Accepts a variety of slash types    |
+| SlashChoice | Names                                           | Provides a choice UI                |
+| SlashEcho   | [Text]                                          | A Hello World command               |
 
 ## Utility
 | Commands | Arguments | Description          |

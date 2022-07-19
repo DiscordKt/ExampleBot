@@ -1,8 +1,11 @@
 package me.jakejmattson.bot.commands
 
 import dev.kord.common.kColor
+import dev.kord.core.entity.Message
 import dev.kord.x.emoji.Emojis
 import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.dsl.edit
+import me.jakejmattson.discordkt.dsl.menu
 import java.awt.Color
 
 //To register commands, use the 'commands' builder function.
@@ -22,7 +25,7 @@ fun basics() = commands("Basics") {
         execute {
             //You can also respond with a Discord embed.
             respond {
-                title = "Hello World"
+                title = "This is an embed"
             }
         }
     }
@@ -38,18 +41,11 @@ fun basics() = commands("Basics") {
                 //Creates a new button row
                 buttons {
                     //Exposes the menu for navigation functions.
-                    button("Left", Emojis.arrowLeft) {
-                        previousPage()
-                    }
-
-                    button("Right", Emojis.arrowRight) {
-                        nextPage()
-                    }
+                    button("Left", Emojis.arrowLeft) { previousPage() }
+                    button("Right", Emojis.arrowRight) { nextPage() }
 
                     //Exposes the current embed page to be edited.
-                    editButton("Rainbow", Emojis.rainbow) {
-                        color = genRandomColor()
-                    }
+                    editButton("Rainbow", Emojis.rainbow) { color = genRandomColor() }
 
                     //Opens the specified link in the browser.
                     linkButton("Source", Emojis.pageFacingUp, "https://github.com/DiscordKt/ExampleBot")
