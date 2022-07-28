@@ -1,8 +1,9 @@
 group = "me.jakejmattson"
-version = "0.22.0"
+version = "0.23.0"
 
 plugins {
-    kotlin("jvm") version "1.5.21"
+    kotlin("jvm") version "1.7.10"
+    kotlin("plugin.serialization") version "1.7.10"
 }
 
 repositories {

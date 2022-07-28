@@ -1,7 +1,7 @@
 package me.jakejmattson.bot.preconditions
 
-import me.jakejmattson.discordkt.api.dsl.commands
-import me.jakejmattson.discordkt.api.dsl.precondition
+import me.jakejmattson.discordkt.commands.commands
+import me.jakejmattson.discordkt.dsl.precondition
 
 //Preconditions are a way to make sure that a command is allowed to be run.
 fun namePrecondition() = precondition {
@@ -15,7 +15,7 @@ fun namePrecondition() = precondition {
 
 fun preconditions() = commands("Preconditions") {
     command("Precondition") {
-        description = "Show a command failing a precondition."
+        description = "Show a command failing a precondition"
         execute {
             //This does not run, since the above precondition fails.
             respond("Precondition passed.")
