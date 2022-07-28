@@ -1,5 +1,5 @@
 group = "me.jakejmattson"
-version = "0.23.0-SNAPSHOT"
+version = "0.23.0"
 
 plugins {
     kotlin("jvm") version "1.7.10"
@@ -7,9 +7,7 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
-    maven("https://oss.sonatype.org/content/repositories/snapshots")
 }
 
 dependencies {

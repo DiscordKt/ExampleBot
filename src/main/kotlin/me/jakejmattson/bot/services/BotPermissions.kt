@@ -11,7 +11,7 @@ object BotPermissions {
     //val BOT_OWNER = N/A
     val GUILD_OWNER = Permissions(Permission.ManageGuild)
     val STAFF = Permissions(Permission.ManageMessages)
-    val EVERYONE = Permissions(Permission.SendMessages)
+    val EVERYONE = Permissions(Permission.UseApplicationCommands)
 }
 
 //The commands builder can accept a required permission that will be applied to all commands in this category
