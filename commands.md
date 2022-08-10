@@ -5,6 +5,14 @@
 |-------------|--------------------------------|
 | [Argument]  | Argument is not required.      |
 | Argument... | Accepts many of this argument. |
+| /Category   | This is a subcommand group.    |
+
+## /Math
+| Commands | Arguments     | Description                   |
+|----------|---------------|-------------------------------|
+| Add      | First, Second | Add two numbers together      |
+| Mult     | First, Second | Multiply two numbers together |
+| Sub      | First, Second | Subtract two numbers          |
 
 ## Arguments
 | Commands | Arguments                           | Description                 |
@@ -74,9 +82,8 @@
 ## Slash
 | Commands    | Arguments                                       | Description                         |
 |-------------|-------------------------------------------------|-------------------------------------|
-| Info        | [User]                                          | Get information for the target user |
+| Info        | User                                            | Get information for the target user |
 | Link        | Message                                         | Get a message's jump link           |
-| Modal       |                                                 | Display a modal to the user         |
 | SlashAdd    | First, Second                                   | A simple addition command           |
 | SlashAll    | [Integer], [Boolean], [User], [Role], [Channel] | Accepts a variety of slash types    |
 | SlashChoice | Names                                           | Provides a choice UI                |

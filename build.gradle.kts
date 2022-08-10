@@ -1,5 +1,5 @@
 group = "me.jakejmattson"
-version = "0.23.0"
+version = "0.23.2"
 
 plugins {
     kotlin("jvm") version "1.7.10"

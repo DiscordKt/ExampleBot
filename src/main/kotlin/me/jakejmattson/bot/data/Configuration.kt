@@ -16,7 +16,7 @@ data class Configuration(val botOwner: Snowflake = Snowflake(254786431656919051)
                          var favoriteNumber: Int = 3) : Data()
 
 fun dataCommands(configuration: Configuration) = commands("Data") {
-    command("Data") {
+    slash("Data") {
         description = "Display the Data from the config file."
         execute {
             val owner = discord.kord.getUser(configuration.botOwner)!!
@@ -32,7 +32,7 @@ fun dataCommands(configuration: Configuration) = commands("Data") {
         }
     }
 
-    command("SetData") {
+    slash("SetData") {
         description = "Modify the Data from the config file"
         execute(IntegerArg) {
             val input = args.first

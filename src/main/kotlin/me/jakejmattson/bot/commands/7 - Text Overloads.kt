@@ -7,7 +7,7 @@ import me.jakejmattson.discordkt.commands.commands
 fun overload() = commands("Overload") {
     //Commands can be overloaded - have multiple execute blocks.
     //This allows you to process different args differently.
-    command("Overload") {
+    text("Overload") {
         description = "This command has multiple execute blocks"
         execute {
             respond("I took no args")
