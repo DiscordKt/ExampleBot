@@ -14,7 +14,7 @@ fun namePrecondition() = precondition {
 }
 
 fun preconditions() = commands("Preconditions") {
-    command("Precondition") {
+    slash("Precondition") {
         description = "Show a command failing a precondition"
         execute {
             //This does not run, since the above precondition fails.

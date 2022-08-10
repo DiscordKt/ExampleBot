@@ -6,11 +6,9 @@ import dev.kord.x.emoji.Emojis
 import kotlinx.coroutines.flow.toList
 import me.jakejmattson.bot.data.Configuration
 import me.jakejmattson.bot.services.BotPermissions
-import me.jakejmattson.discordkt.commands.SlashCommand
 import me.jakejmattson.discordkt.dsl.CommandException
 import me.jakejmattson.discordkt.dsl.ListenerException
 import me.jakejmattson.discordkt.dsl.bot
-import me.jakejmattson.discordkt.extensions.*
 import me.jakejmattson.discordkt.locale.Language
 import java.awt.Color
 import java.time.Instant
@@ -64,18 +62,6 @@ suspend fun main(args: Array<String>) {
 
             //Set the default permission required for slash commands.
             defaultPermissions = BotPermissions.EVERYONE
-        }
-
-        //An embed sent whenever someone solely mentions your bot ('@Bot').
-        mentionEmbed {
-            title = "Hello World"
-            color = it.discord.configuration.theme
-
-            author(it.author)
-            thumbnail(it.discord.kord.getSelf().pfpUrl)
-            addField("Prefix", it.prefix())
-            addField("Startup", TimeStamp.at(startup, TimeStyle.RELATIVE))
-            footer(it.discord.versions.toString())
         }
 
         onException {

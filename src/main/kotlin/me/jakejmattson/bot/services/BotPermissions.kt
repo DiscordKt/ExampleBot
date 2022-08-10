@@ -8,7 +8,6 @@ import me.jakejmattson.discordkt.commands.commands
 //If a user meets or exceeds that permission level, they can execute the command
 //This enum must be registered in the configure block along with a default command permission
 object BotPermissions {
-    //val BOT_OWNER = N/A
     val GUILD_OWNER = Permissions(Permission.ManageGuild)
     val STAFF = Permissions(Permission.ManageMessages)
     val EVERYONE = Permissions(Permission.UseApplicationCommands)

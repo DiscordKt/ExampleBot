@@ -6,7 +6,7 @@ import me.jakejmattson.discordkt.commands.commands
 //Most of the time, you will want your commands to accept input.
 //This can be accomplished with the different ArgumentTypes.
 fun arguments() = commands("Arguments") {
-    command("Echo") {
+    slash("Echo") {
         description = "Echo the input back"
         execute(EveryArg) {
             //All user input will be contained in 'args' with the correct type information.
@@ -16,7 +16,22 @@ fun arguments() = commands("Arguments") {
         }
     }
 
-    command("Junk") {
+    slash("Add") {
+        description = "A simple addition command"
+        execute(IntegerArg("First"), IntegerArg("Second")) {
+            val (first, second) = args
+            respond("$first + $second = ${first + second}")
+        }
+    }
+
+    slash("Choice") {
+        description = "Provides a choice UI"
+        execute(ChoiceArg("Names", "Names of cool people", "Jake", "David", "Elliott", "Moe")) {
+            respond("You chose ${args.first}")
+        }
+    }
+
+    slash("Junk") {
         description = "Accept a bunch of arguments"
         //You can accept as many arguments as you want.
         execute(IntegerArg, AnyArg, UserArg, ChannelArg, DoubleArg) {
@@ -30,15 +45,6 @@ fun arguments() = commands("Arguments") {
                 Decimal:  $double
                 ```
             """.trimIndent())
-        }
-    }
-
-    command("Sum") {
-        description = "Sum a list of integers"
-        //You can also accept multiple of any type.
-        execute(IntegerArg.multiple()) {
-            val numbers = args.first
-            respond(numbers.sum())
         }
     }
 }
