@@ -1,12 +1,6 @@
 package me.jakejmattson.bot.commands
 
-import dev.kord.common.kColor
-import dev.kord.core.entity.Message
-import dev.kord.x.emoji.Emojis
 import me.jakejmattson.discordkt.commands.commands
-import me.jakejmattson.discordkt.dsl.edit
-import me.jakejmattson.discordkt.dsl.menu
-import java.awt.Color
 
 //To register commands, use the 'commands' builder function.
 //This creates some new commands in a category called 'Basic'.

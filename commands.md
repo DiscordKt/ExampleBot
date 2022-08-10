@@ -4,7 +4,6 @@
 | Symbol      | Meaning                        |
 |-------------|--------------------------------|
 | [Argument]  | Argument is not required.      |
-| Argument... | Accepts many of this argument. |
 | /Category   | This is a subcommand group.    |
 
 ## /Math
@@ -17,16 +16,16 @@
 ## Arguments
 | Commands | Arguments                           | Description                 |
 |----------|-------------------------------------|-----------------------------|
+| Add      | First, Second                       | A simple addition command   |
+| Choice   | Names                               | Provides a choice UI        |
 | Echo     | Text                                | Echo the input back         |
 | Junk     | Integer, Any, User, Channel, Double | Accept a bunch of arguments |
-| Sum      | Integer                             | Sum a list of integers      |
 
 ## Basics
 | Commands | Arguments | Description             |
 |----------|-----------|-------------------------|
 | Embed    |           | Create an embed message |
 | Hello    |           | A 'Hello World' command |
-| Menu     |           | Create a menu message   |
 
 ## Context
 | Commands | Arguments | Description                               |
@@ -34,6 +33,9 @@
 | Dm       |           | This command can only be used in a DM     |
 | Global   |           | This command can be used in a guild or DM |
 | Guild    |           | This command can only be used in a guild  |
+| Info     | User      | Get information for the target user       |
+| Link     | Message   | Get a message's jump link                 |
+| Menu     |           | Create a menu message                     |
 
 ## Conversation
 | Commands | Arguments | Description                                |
@@ -78,16 +80,6 @@
 | Commands     | Arguments | Description                           |
 |--------------|-----------|---------------------------------------|
 | Precondition |           | Show a command failing a precondition |
-
-## Slash
-| Commands    | Arguments                                       | Description                         |
-|-------------|-------------------------------------------------|-------------------------------------|
-| Info        | User                                            | Get information for the target user |
-| Link        | Message                                         | Get a message's jump link           |
-| SlashAdd    | First, Second                                   | A simple addition command           |
-| SlashAll    | [Integer], [Boolean], [User], [Role], [Channel] | Accepts a variety of slash types    |
-| SlashChoice | Names                                           | Provides a choice UI                |
-| SlashEcho   | [Text]                                          | A Hello World command               |
 
 ## Utility
 | Commands | Arguments | Description          |
