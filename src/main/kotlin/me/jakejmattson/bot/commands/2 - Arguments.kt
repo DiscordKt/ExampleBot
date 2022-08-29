@@ -1,13 +1,13 @@
 package me.jakejmattson.bot.commands
 
+import me.jakejmattson.bot.data.dataCommands
 import me.jakejmattson.discordkt.arguments.*
 import me.jakejmattson.discordkt.commands.commands
 
 //Most of the time, you will want your commands to accept input.
 //This can be accomplished with the different ArgumentTypes.
 fun arguments() = commands("Arguments") {
-    slash("Echo") {
-        description = "Echo the input back"
+    slash("Echo", "Echo the input back") {
         execute(EveryArg) {
             //All user input will be contained in 'args' with the correct type information.
             //If the execute block is run, you can guarantee that the data is there.
@@ -16,23 +16,20 @@ fun arguments() = commands("Arguments") {
         }
     }
 
-    slash("Add") {
-        description = "A simple addition command"
+    slash("Plus", "A simple addition command") {
         execute(IntegerArg("First"), IntegerArg("Second")) {
             val (first, second) = args
             respond("$first + $second = ${first + second}")
         }
     }
 
-    slash("Choice") {
-        description = "Provides a choice UI"
+    slash("Choice", "Provides a choice UI") {
         execute(ChoiceArg("Names", "Names of cool people", "Jake", "David", "Elliott", "Moe")) {
             respond("You chose ${args.first}")
         }
     }
 
-    slash("Junk") {
-        description = "Accept a bunch of arguments"
+    slash("Junk", "Accept a bunch of arguments") {
         //You can accept as many arguments as you want.
         execute(IntegerArg, AnyArg, UserArg, ChannelArg, DoubleArg) {
             val (int, word, user, channel, double) = args

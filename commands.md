@@ -13,13 +13,18 @@
 | Mult     | First, Second | Multiply two numbers together |
 | Sub      | First, Second | Subtract two numbers          |
 
+## /Prompt
+| Commands | Arguments | Description |
+|----------|-----------|-------------|
+| Modal    |           |             |
+
 ## Arguments
 | Commands | Arguments                           | Description                 |
 |----------|-------------------------------------|-----------------------------|
-| Add      | First, Second                       | A simple addition command   |
 | Choice   | Names                               | Provides a choice UI        |
 | Echo     | Text                                | Echo the input back         |
 | Junk     | Integer, Any, User, Channel, Double | Accept a bunch of arguments |
+| Plus     | First, Second                       | A simple addition command   |
 
 ## Basics
 | Commands | Arguments | Description             |
@@ -28,20 +33,17 @@
 | Hello    |           | A 'Hello World' command |
 
 ## Context
-| Commands | Arguments | Description                               |
-|----------|-----------|-------------------------------------------|
-| Dm       |           | This command can only be used in a DM     |
-| Global   |           | This command can be used in a guild or DM |
-| Guild    |           | This command can only be used in a guild  |
-| Info     | User      | Get information for the target user       |
-| Link     | Message   | Get a message's jump link                 |
-| Menu     |           | Create a menu message                     |
+| Commands | Arguments | Description                         |
+|----------|-----------|-------------------------------------|
+| Info     | User      | Get information for the target user |
+| Link     | Message   | Get a message's jump link           |
 
 ## Conversation
 | Commands | Arguments | Description                                |
 |----------|-----------|--------------------------------------------|
 | Private  |           | Starts a conversation in a private channel |
 | Public   |           | Start a conversation in a public channel   |
+| Slash    |           | Start a conversation from a slash command  |
 
 ## Data
 | Commands | Arguments | Description                            |
@@ -50,18 +52,18 @@
 | SetData  | Integer   | Modify the Data from the config file   |
 
 ## Math
-| Commands | Arguments        | Description                   |
-|----------|------------------|-------------------------------|
-| Add      | Integer, Integer | Add two numbers together      |
-| Mult     | Integer, Integer | Multiply two numbers together |
-| Sub      | Integer, Integer | Subtract two numbers          |
+| Commands | Arguments     | Description                   |
+|----------|---------------|-------------------------------|
+| Add      | First, Second | Add two numbers together      |
+| Mult     | First, Second | Multiply two numbers together |
+| Sub      | First, Second | Subtract two numbers          |
 
 ## Optional
-| Commands    | Arguments          | Description                          |
-|-------------|--------------------|--------------------------------------|
-| Number      | [Integer]          | Enter any number to see the next one |
-| OptionalAdd | Integer, [Integer] | Add one or two numbers together      |
-| User        | [User]             | Provides the tag of a given user     |
+| Commands    | Arguments       | Description                          |
+|-------------|-----------------|--------------------------------------|
+| Number      | [Integer]       | Enter any number to see the next one |
+| OptionalAdd | First, [Second] | Add one or two numbers together      |
+| User        | [User]          | Provides the tag of a given user     |
 
 ## Overload
 | Commands | Arguments | Description                              |
@@ -81,8 +83,17 @@
 |--------------|-----------|---------------------------------------|
 | Precondition |           | Show a command failing a precondition |
 
+## Text
+| Commands | Arguments | Description                               |
+|----------|-----------|-------------------------------------------|
+| Dm       |           | This command can only be used in a DM     |
+| Global   |           | This command can be used in a guild or DM |
+| Guild    |           | This command can only be used in a guild  |
+| Menu     |           | Create a menu message                     |
+
 ## Utility
-| Commands | Arguments | Description          |
-|----------|-----------|----------------------|
-| Help     | [Command] | Display a help menu. |
+| Commands | Arguments | Description             |
+|----------|-----------|-------------------------|
+| Help     | [Command] | Display a help menu.    |
+| info     |           | Bot info for ExampleBot |
 

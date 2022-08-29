@@ -13,8 +13,6 @@ import me.jakejmattson.discordkt.locale.Language
 import java.awt.Color
 import java.time.Instant
 
-val startup = Instant.now()
-
 @KordPreview
 suspend fun main(args: Array<String>) {
     //Get the bot token from the command line (or your preferred way).

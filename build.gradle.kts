@@ -1,7 +1,5 @@
-import java.util.Properties
-
 group = "me.jakejmattson"
-version = "0.23.3"
+version = "0.23.4"
 description = "An example bot for DiscordKt"
 
 plugins {
@@ -17,15 +15,17 @@ dependencies {
     implementation("me.jakejmattson", "DiscordKt", version.toString())
 }
 
-tasks.compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+tasks {
+    compileKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+        dependsOn("writeProperties")
+    }
 
-    Properties().apply {
-        setProperty("name", project.name)
-        setProperty("description", project.description)
-        setProperty("version", version.toString())
-        setProperty("url", "https://github.com/DiscordKt/ExampleBot")
-
-        store(file("src/main/resources/bot.properties").outputStream(), null)
+    register<WriteProperties>("writeProperties") {
+        property("name", project.name)
+        property("description", project.description.toString())
+        property("version", version.toString())
+        property("url", "https://github.com/DiscordKt/ExampleBot")
+        setOutputFile("src/main/resources/bot.properties")
     }
 }

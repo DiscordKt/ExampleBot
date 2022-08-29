@@ -6,6 +6,7 @@ import me.jakejmattson.discordkt.arguments.AnyArg
 import me.jakejmattson.discordkt.arguments.IntegerArg
 import me.jakejmattson.discordkt.commands.commands
 import me.jakejmattson.discordkt.conversations.conversation
+import me.jakejmattson.discordkt.extensions.toPartialEmoji
 
 fun greetingConversation() = conversation("exit", 30) {
     val name = prompt(AnyArg, "What is your name?")
@@ -14,7 +15,7 @@ fun greetingConversation() = conversation("exit", 30) {
         title = "How old are you?"
     }
 
-    val response = promptButton<String> {
+    val response = promptButton {
         embed {
             title = "Do you like DiscordKt?"
             color = Color(0x00bfff)
@@ -26,12 +27,20 @@ fun greetingConversation() = conversation("exit", 30) {
         }
     }
 
-    val selection = promptSelect("A", "B", "C") {
-        title = "Selection"
-        description = "What's your favorite letter?"
+    val selection = promptSelect {
+        this.selectionCount = 1..1
+
+        content {
+            title = "Selection"
+            description = "What's your favorite letter?"
+        }
+
+        option("A", description = "The first letter", emoji = Emojis.regionalIndicatorA.toPartialEmoji())
+        option("B", description = "The second letter", emoji = Emojis.regionalIndicatorB.toPartialEmoji())
+        option("C", description = "The third letter", emoji = Emojis.regionalIndicatorC.toPartialEmoji())
     }
 
-    respond("Nice to meet you $name ($age)! $response $selection is my favorite letter too.")
+    respond("Nice to meet you $name ($age)! $response ${selection.first()} is my favorite letter too.")
 }
 
 fun conversationCommands() = commands("Conversation") {
@@ -47,6 +56,13 @@ fun conversationCommands() = commands("Conversation") {
         description = "Starts a conversation in a private channel"
         execute {
             val result = greetingConversation().startPrivately(discord, author)
+            println(result)
+        }
+    }
+
+    slash("Slash", "Start a conversation from a slash command") {
+        execute {
+            val result = greetingConversation().startSlashResponse(discord, author, this)
             println(result)
         }
     }

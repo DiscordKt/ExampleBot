@@ -16,6 +16,6 @@ fun context() = commands("Context") {
      * Creates a right-click user app.
      */
     user(displayText = "Show User Info", slashName = "Info", description = "Get information for the target user") {
-        respond(arg.descriptor() + " " + args.first.descriptor())
+        respond(arg.descriptor())
     }
 }

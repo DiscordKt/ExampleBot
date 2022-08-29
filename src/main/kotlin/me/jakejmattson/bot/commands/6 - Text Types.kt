@@ -7,7 +7,7 @@ import java.awt.Color
 
 //There are different builders for different types of commands.
 //This allows more type-safe access to data, such as channels.
-fun contexts() = commands("Context") {
+fun textCommands() = commands("Text") {
     text("Guild") {
         description = "This command can only be used in a guild"
         execute {
