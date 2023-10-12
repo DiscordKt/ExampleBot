@@ -9,7 +9,7 @@ fun basics() = commands("Basics") {
     //Descriptions are used for docs and help menus.
     slash("Hello", "A 'Hello World' command") {
         execute { //The 'execute' block is what code will be run when your command is invoked.
-            //The respond command can be used to send a message back to the user who ran the command.
+            //The 'respond' command can be used to send a message back to the user who ran the command.
             respond("Hello World!")
         }
     }

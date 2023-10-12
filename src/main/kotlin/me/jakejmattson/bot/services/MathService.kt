@@ -15,8 +15,7 @@ class MathService {
 
 //To use Services somewhere, just request them as parameters.
 fun mathCommands(mathService: MathService) = commands("Math") {
-    slash("Add") {
-        description = "Add two numbers together"
+    slash("Add", "Add two numbers together") {
         execute(IntegerArg("First"), IntegerArg("Second")) {
             val (first, second) = args
             val result = mathService.add(first, second)
@@ -24,8 +23,7 @@ fun mathCommands(mathService: MathService) = commands("Math") {
         }
     }
 
-    slash("Sub") {
-        description = "Subtract two numbers"
+    slash("Sub", "Subtract two numbers") {
         execute(IntegerArg("First"), IntegerArg("Second")) {
             val (first, second) = args
             val result = mathService.sub(first, second)
@@ -33,8 +31,7 @@ fun mathCommands(mathService: MathService) = commands("Math") {
         }
     }
 
-    slash("Mult") {
-        description = "Multiply two numbers together"
+    slash("Mult", "Multiply two numbers together") {
         execute(IntegerArg("First"), IntegerArg("Second")) {
             val (first, second) = args
             val result = mathService.mult(first, second)

@@ -11,7 +11,6 @@ import me.jakejmattson.discordkt.dsl.ListenerException
 import me.jakejmattson.discordkt.dsl.bot
 import me.jakejmattson.discordkt.locale.Language
 import java.awt.Color
-import java.time.Instant
 
 @KordPreview
 suspend fun main(args: Array<String>) {
@@ -28,7 +27,7 @@ suspend fun main(args: Array<String>) {
 
         //Simple configuration options
         configure {
-            //Allow a mention to be used in front of commands ('@Bot help`).
+            //Allow a mention to be used in front of commands ('@Bot help').
             mentionAsPrefix = true
 
             //Whether to show registered entity information on startup.

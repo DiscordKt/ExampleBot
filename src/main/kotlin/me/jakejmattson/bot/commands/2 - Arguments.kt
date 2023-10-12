@@ -1,6 +1,5 @@
 package me.jakejmattson.bot.commands
 
-import me.jakejmattson.bot.data.dataCommands
 import me.jakejmattson.discordkt.arguments.*
 import me.jakejmattson.discordkt.commands.commands
 
@@ -33,7 +32,8 @@ fun arguments() = commands("Arguments") {
         //You can accept as many arguments as you want.
         execute(IntegerArg, AnyArg, UserArg, ChannelArg, DoubleArg) {
             val (int, word, user, channel, double) = args
-            respond("""
+            respond(
+                """
                 ```
                 Integer:  $int
                 One Word: $word
@@ -41,7 +41,8 @@ fun arguments() = commands("Arguments") {
                 Channel:  ${channel.name}
                 Decimal:  $double
                 ```
-            """.trimIndent())
+            """.trimIndent()
+            )
         }
     }
 }

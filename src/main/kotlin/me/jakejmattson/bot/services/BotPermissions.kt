@@ -15,17 +15,14 @@ object BotPermissions {
 
 //The commands builder can accept a required permission that will be applied to all commands in this category
 fun permissionCommands() = commands("Permissions", BotPermissions.GUILD_OWNER) {
-    slash("GuildOwner") {
-        description = "Command requiring GUILD_OWNER permissions"
+    slash("GuildOwner", "Command requiring GUILD_OWNER permissions") {
         execute {
             respond("Hello guild owner!")
         }
     }
 
     //Commands within a category can override the permission level of that category
-    slash("Staff") {
-        description = "Command requiring STAFF permissions"
-        requiredPermissions = BotPermissions.STAFF
+    slash("Staff", "Command requiring STAFF permissions", BotPermissions.STAFF) {
         execute {
             respond("Hello staff member!")
         }
