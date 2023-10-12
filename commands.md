@@ -35,8 +35,8 @@
 ## Context
 | Commands | Arguments | Description                         |
 |----------|-----------|-------------------------------------|
-| Info     | User      | Get information for the target user |
 | Link     | Message   | Get a message's jump link           |
+| UserInfo | User      | Get information for the target user |
 
 ## Conversation
 | Commands | Arguments | Description                                |
