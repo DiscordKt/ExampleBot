@@ -6,7 +6,7 @@ import me.jakejmattson.discordkt.arguments.AnyArg
 import me.jakejmattson.discordkt.arguments.IntegerArg
 import me.jakejmattson.discordkt.commands.commands
 import me.jakejmattson.discordkt.conversations.conversation
-import me.jakejmattson.discordkt.extensions.toPartialEmoji
+import me.jakejmattson.discordkt.util.toPartialEmoji
 
 fun greetingConversation() = conversation("exit", 30) {
     val name = prompt(AnyArg, "What is your name?")

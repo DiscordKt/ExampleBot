@@ -6,7 +6,7 @@ import me.jakejmattson.discordkt.arguments.IntegerArg
 import me.jakejmattson.discordkt.commands.commands
 import me.jakejmattson.discordkt.dsl.Data
 import me.jakejmattson.discordkt.dsl.edit
-import me.jakejmattson.discordkt.extensions.pfpUrl
+import me.jakejmattson.discordkt.util.pfpUrl
 
 //A Data class is a serializable set of data stored in a file as JSON.
 //These classes can be loaded in the main bot function and saved once modified.

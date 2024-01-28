@@ -1,10 +1,10 @@
 group = "me.jakejmattson"
-version = "0.23.4"
+version = "0.24.0"
 description = "An example bot for DiscordKt"
 
 plugins {
-    kotlin("jvm") version "1.7.10"
-    kotlin("plugin.serialization") version "1.7.10"
+    kotlin("jvm") version "1.9.10"
+    kotlin("plugin.serialization") version "1.9.10"
 }
 
 repositories {
@@ -16,9 +16,12 @@ dependencies {
 }
 
 tasks {
+    kotlin {
+        jvmToolchain(11)
+    }
+
     compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-        dependsOn("writeProperties")
+        doLast("writeProperties") {}
     }
 
     register<WriteProperties>("writeProperties") {

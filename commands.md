@@ -14,9 +14,10 @@
 | Sub      | First, Second | Subtract two numbers          |
 
 ## /Prompt
-| Commands | Arguments | Description |
-|----------|-----------|-------------|
-| Modal    |           |             |
+| Commands | Arguments | Description                           |
+|----------|-----------|---------------------------------------|
+| Modal    |           | Create a prompt with a modal          |
+| Select   |           | Create a prompt with a selection menu |
 
 ## Arguments
 | Commands | Arguments                           | Description                 |

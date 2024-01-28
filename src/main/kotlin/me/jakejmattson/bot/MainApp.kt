@@ -1,7 +1,12 @@
 package me.jakejmattson.bot
 
 import dev.kord.common.annotation.KordPreview
+import dev.kord.core.behavior.channel.createEmbed
+import dev.kord.core.entity.channel.TextChannel
+import dev.kord.core.event.channel.TypingStartEvent
+import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.gateway.Intents
+import dev.kord.gateway.NON_PRIVILEGED
 import dev.kord.x.emoji.Emojis
 import kotlinx.coroutines.flow.toList
 import me.jakejmattson.bot.data.Configuration
@@ -10,6 +15,8 @@ import me.jakejmattson.discordkt.dsl.CommandException
 import me.jakejmattson.discordkt.dsl.ListenerException
 import me.jakejmattson.discordkt.dsl.bot
 import me.jakejmattson.discordkt.locale.Language
+import me.jakejmattson.discordkt.util.intentsOf
+import me.jakejmattson.discordkt.util.toSnowflake
 import java.awt.Color
 
 @KordPreview
@@ -55,7 +62,7 @@ suspend fun main(args: Array<String>) {
             theme = Color(0x00BFFF)
 
             //Configure the Discord Gateway intents for your bot.
-            intents = Intents.nonPrivileged
+            intents = Intents.NON_PRIVILEGED + intentsOf<MessageCreateEvent>()
 
             //Set the default permission required for slash commands.
             defaultPermissions = BotPermissions.EVERYONE
@@ -83,7 +90,7 @@ suspend fun main(args: Array<String>) {
         }
 
         //Configure the locale for this bot.
-        localeOf(Language.EN) {
+        localeOf(Language.EN.locale) {
             helpName = "Help"
             helpCategory = "Utility"
             commandRecommendation = "Recommendation: {0}"

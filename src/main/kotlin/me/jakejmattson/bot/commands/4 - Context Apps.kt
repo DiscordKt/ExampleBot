@@ -1,8 +1,8 @@
 package me.jakejmattson.bot.commands
 
 import me.jakejmattson.discordkt.commands.commands
-import me.jakejmattson.discordkt.extensions.descriptor
-import me.jakejmattson.discordkt.extensions.jumpLink
+import me.jakejmattson.discordkt.util.descriptor
+import me.jakejmattson.discordkt.util.jumpLink
 
 fun context() = commands("Context") {
     /**
